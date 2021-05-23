@@ -1,8 +1,13 @@
 {% extends "layout.html" %}
+
+{% block header %}
+        App 1
+{% endblock header %}
+
 {% block content%}
     {% for item in info %}
         <h1>{{ item.subdomain }} </h1>
         <p> Google dataset is  {{ item.dataset_gp }}  and apple is {{ item.dataset_ap }}</p>
         <p>External ID {{ item.external_id }} </p>
     {% endfor %}
-{% endblock %}
+{% endblock content %}
