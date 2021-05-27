@@ -1,7 +1,18 @@
 from flask import Flask, render_template, url_for
+from flask_sqlalchemy import SQLAlchemy
+from datetime import datetime 
 
 app = Flask(__name__)
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql:///data.db' 
+db = SQLAlchemy(app)
 
+class Toda(db.Model):
+    id = db.Column(db.Integer, primary_key = True)
+    content = df.Column(db.String(200), nullable=False)
+    date_created = db.column(db.DateTime, default=datetime.utcnow) # will be set automatically
+
+    def __repr__(self):
+        return f'new entry created with id = {self.id}'
 
 info =[{'subdomain' : 'test_sub',
         'dataset_gp' : 11,
